@@ -9,9 +9,9 @@ const covid19ImpactEstimator = (data) => {
     impact.currentlyInfected = newData.currentlyInfected(data.reportedCases);
     servereImpact.currentlyInfected = newData.serverlyinfected(data.reportedCases);
     // eslint-disable-next-line max-len
-    impact.infectionsByRequestedTime = newData.infectionsByRequestedTime(impact.currentlyInfected, data.timeToElapse);
+    impact.infectionsByRequestedTime = newData.infectionsByRequestedTime(newData.currentlyInfected(data.reportedCases), data.timeToElapse);
     servereImpact.infectionsByRequestedTime = newData.infectionsByRequestedTime(
-        servereImpact.currentlyInfected, data.timeToElapse
+        newData.serverlyinfected(data.reportedCases), data.timeToElapse
     );
 
     return {
