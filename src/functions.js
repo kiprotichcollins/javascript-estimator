@@ -7,6 +7,10 @@ export function currentlyInfected(reportedCases) {
 export function serverlyinfected(reportedCases) {
     return reportedCases * 50;
 }
-export function infectionsByRequestedTime(currentlyInfectedData) {
-    return currentlyInfectedData * 1024;
+export function infectionsByRequestedTime(currentlyInfectedData, timeElapsed) {
+    // get the number of days from today;
+    // let today = new Date().toISOString().slice(0, 10);
+    // get days
+    const days = timeElapsed / 3;
+    return currentlyInfectedData * (2 ** days);
 }
